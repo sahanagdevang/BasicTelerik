@@ -32,54 +32,69 @@
                  <td><telerik:RadButton ID="btnSave" runat="server" Text="Save" RenderMode="Lightweight" 
                      OnClick="rdbtnSave_Click" BackColor="OrangeRed" ForeColor="White" BorderStyle="Solid" BorderColor="Black" Font-Bold="true"></telerik:RadButton></td>
              </tr>
-                <tr></tr>
               <tr>
                  <td></td>
-                 <td><telerik:RadButton ID="btnGenerate" runat="server" Text="Generate" RenderMode="Lightweight" OnNeedDataSource="RadGrid1_NeedDataSource" 
-                     OnClick="btn1_Click" BackColor="OrangeRed" ForeColor="White" BorderStyle="Solid" BorderColor="Black" Font-Bold="true"></telerik:RadButton></td>
+                 <td><telerik:RadButton ID="btnGenerate" runat="server" Text="Generate" RenderMode="Lightweight" 
+                     OnClick="generate_Click" BackColor="OrangeRed" ForeColor="White" BorderStyle="Solid" BorderColor="Black" Font-Bold="true"></telerik:RadButton></td>
              </tr>
             </table>
             <table>
              <tr>
                  <td>
                      
-                    <telerik:RadGrid ID="RadGrid1" runat="server"  RenderMode="Lightweight" Height="500px" Width="100%" AllowFilteringByColumn="True" 
+                    <telerik:RadGrid ID="RadGrid1" runat="server"  RenderMode="Lightweight" Height="400px" Width="100%" AllowFilteringByColumn="True" 
                         AllowPaging="True" AllowMultipleRowSelect="True" 
-                        OnNeedDataSource="RadGrid1_NeedDataSource" 
+                        OnNeedDataSource="RadGrid1_NeedDataSource" AutoGenerateColumns="true"
                         OnPageIndexChanged="RadGrid1_PageIndexChanged">
-                        <PagerStyle BackColor="Red" Height="20px" EnableAllOptionInPagerComboBox="true"/>
-                       
-                    
-                        <MasterTableView AutoGenerateColumns="false" DataKeyNames="PersonId" BackColor="SkyBlue"  HeaderStyle-BackColor="DarkBlue" HeaderStyle-Font-Bold="true" 
-                            HeaderStyle-ForeColor="White" FilterItemStyle-BackColor="WindowFrame" FooterStyle-BackColor="WindowFrame">
-
-                             <Columns>
-                                <telerik:GridBoundColumn HeaderText="Person Id" DataField="PersonId" HeaderStyle-Width="120px" FilterControlWidth="50px"></telerik:GridBoundColumn>
-                                <telerik:GridBoundColumn HeaderText="Person Name" DataField="PersonName" FilterControlWidth="50px"></telerik:GridBoundColumn>
-                                <telerik:GridBoundColumn HeaderText="Person Address" DataField="PersonAddress" FilterControlWidth="50px"></telerik:GridBoundColumn>
-                                <telerik:GridBoundColumn HeaderText="Person Age" DataField="PersonAge" FilterControlWidth="50px"></telerik:GridBoundColumn>
-                            </Columns>
-                        </MasterTableView>
                         
-<GroupingSettings CollapseAllTooltip="Collapse all groups"></GroupingSettings>
-
-                        <ClientSettings EnableRowHoverStyle="true">
-                                <Selecting AllowRowSelect="True" />
-                                <Scrolling AllowScroll="True" UseStaticHeaders="True" />
-                        </ClientSettings>
-                        <SelectedItemStyle BackColor="Black" BorderColor="Purple" BorderStyle="Dashed" BorderWidth="1px" />
-                                 <FilterMenu RenderMode="Lightweight"></FilterMenu>
-                                 <HeaderContextMenu RenderMode="Lightweight">
-
-                                 </HeaderContextMenu>
-                        
-                    </telerik:RadGrid>
+                <PagerStyle BackColor="Red" Height="20px" EnableAllOptionInPagerComboBox="true"/>
+                <MasterTableView AutoGenerateColumns="false" DataKeyNames="PersonId" BackColor="SkyBlue"  HeaderStyle-BackColor="DarkBlue" HeaderStyle-Font-Bold="true" 
+                            HeaderStyle-ForeColor="White" FilterItemStyle-BackColor="WindowFrame" FooterStyle-BackColor="WindowFrame" TableLayout="Fixed">
+                                        <RowIndicatorColumn><HeaderStyle Width="20px"></HeaderStyle></RowIndicatorColumn>
+                <ExpandCollapseColumn><HeaderStyle Width="20px"></HeaderStyle></ExpandCollapseColumn>
+                <Columns>
+                      <%--<telerik:GridCheckBoxColumn  DataField="SelectIt" DataType="System.Boolean" HeaderText="SelectIt" 
+            SortExpression="SelectIt" UniqueName="SelectIt" HeaderStyle-Width="120px" AllowFiltering="false">--%>
+            <telerik:GridBoundColumn HeaderText="Id" DataField="PersonId" HeaderStyle-Width="100px"></telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn HeaderText="Person Name" DataField="PersonName" ></telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn HeaderText="Person Address" DataField="PersonAddress" ></telerik:GridBoundColumn>
+                                <telerik:GridBoundColumn HeaderText="Person Age" DataField="PersonAge" ></telerik:GridBoundColumn>
+           
+                     <%-- </telerik:GridCheckBoxColumn>--%>
+                </Columns>
+                 </MasterTableView>
+        <GroupingSettings CollapseAllTooltip="Collapse all groups"></GroupingSettings>
+    
+    <ClientSettings EnableRowHoverStyle="true">
+ <Selecting AllowRowSelect="True" />
+ <Scrolling AllowScroll="True" UseStaticHeaders="True" />
+<Resizing AllowColumnResize="True" AllowRowResize="false" ResizeGridOnColumnResize="false"
+                                      ClipCellContentOnResize="true" EnableRealTimeResize="false" AllowResizeToFit="true" />
+ </ClientSettings>
+ <%--<SelectedItemStyle BackColor="Black" BorderColor="Purple" BorderStyle="Dashed" BorderWidth="1px" />--%>
+<FilterMenu RenderMode="Lightweight"></FilterMenu>
+<HeaderContextMenu RenderMode="Lightweight">
+ </HeaderContextMenu>
+ </telerik:RadGrid>
                  </td>
              </tr>
 
          </table>
-           
+            <br/>
+            <br/>
+            <telerik:RadButton ID="ClearBtn" runat="server" Text="Clear Grid" BackColor="OrangeRed" ForeColor="White" BorderStyle="Solid" BorderColor="Black" Font-Bold="true" OnClick="ClearBtn_Click">
+        </telerik:RadButton>
+             <br/>
+             <br/>
+
+            <telerik:RadLabel ID="clearMsg" runat="server" Text="no Data present" ForeColor="Red">
+        </telerik:RadLabel>
             </div>
+
+        
+
+        <br />
+         
 
     </form>
 </body>

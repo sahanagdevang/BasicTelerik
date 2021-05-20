@@ -20,8 +20,10 @@ namespace BasicTelerik
         {
             if (!IsPostBack)
             {
-                //DataGHridBind();
+                RadGrid1.DataSource = getEmptyTable();
+                clearMsg.Visible = false;
             }
+
         }
 
         public void DataGridBind()
@@ -34,9 +36,12 @@ namespace BasicTelerik
             da.Fill(ds);
             RadGrid1.DataSource = ds;
             RadGrid1.DataBind();
+
             con.Close();
+
         }
        
+
     protected void rdbtnSave_Click(object sender, EventArgs e)
         {
             if (rdtxtName.Text != null)
@@ -52,9 +57,10 @@ namespace BasicTelerik
                 rdtxtName.Text = string.Empty;
                 rdtxtAddress.Text = string.Empty;
                 rdtxtAge.Text = string.Empty;
+
             }
             else { }
-            //RadGrid1.DataSource = getEmptyTable();
+            
         }
 
 
@@ -97,25 +103,37 @@ namespace BasicTelerik
             }
             return dt;
         }
-        
 
+        public void RadGrid1_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
+        {
+            RadGrid1.DataSource = getDataTable();
+            
+        }
         protected void RadGrid1_PageIndexChanged(object sender, GridPageChangedEventArgs e)
         {
             RadGrid1.DataSource = getDataTable();
         }
 
-        protected void btn1_Click(object sender, EventArgs e)
+        protected void generate_Click(object sender, EventArgs e)
         {
             RadGrid1.DataSource = getDataTable();
             RadGrid1.DataBind();
         }
+
+        protected void ClearBtn_Click(object sender, EventArgs e)
+        {
+            //RadGrid1.DataSource = getEmptyTable();
+            //clearMsg.Visible = true;
+        }
+
+        
     }
     public class eventCall
     {
-            public void RadGrid1_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
-        {
-            RadGrid1.DataSource = e.getDataTable();
-            //RadGrid1.DataSource = getEmptyTable();
-        }
+        //    public void RadGrid1_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
+        //{
+        //    //RadGrid1.DataSource = e.getDataTable();
+        //    //RadGrid1.DataSource = getEmptyTable();
+        //}
     }
 }

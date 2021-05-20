@@ -90,12 +90,26 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboBox.aspx.cs">
+      <DependentUpon>ComboBox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComboBox.aspx.designer.cs">
+      <DependentUpon>ComboBox.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Loginpage.aspx.cs">
+      <DependentUpon>Loginpage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Loginpage.aspx.designer.cs">
+      <DependentUpon>Loginpage.aspx</DependentUpon>
     </Compile>
     <Compile Include="MainForm.aspx.cs">
       <DependentUpon>MainForm.aspx</DependentUpon>
@@ -143,7 +157,9 @@
     <Content Include="App_Data\RadCaptcha\X.wav" />
     <Content Include="App_Data\RadCaptcha\Y.wav" />
     <Content Include="App_Data\RadCaptcha\Z.wav" />
+    <Content Include="ComboBox.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Loginpage.aspx" />
     <Content Include="MainForm.aspx" />
   </ItemGroup>
   <ItemGroup>
